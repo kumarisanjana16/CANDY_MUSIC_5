@@ -3,7 +3,7 @@ import asyncio
 import aiohttp
 from youtube_search import YoutubeSearch
 
-API_URL = os.environ.get("API_URL", "https://a56389-6bee.c.jrnm.app")
+API_URL = os.environ.get("API_URL", "https://a60176-682e.d.onjrnm.link")
 API_KEY = os.environ.get("API_KEY", "ZEXXY1NEXOR")
 API_TYPE = os.environ.get("API_TYPE", "audio")
 API_FORMAT = os.environ.get("API_FORMAT", "mp3")
