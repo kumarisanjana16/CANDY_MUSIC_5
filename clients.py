@@ -62,10 +62,9 @@ assistant = Client(
     name="Assistant",
     api_id=config.API_ID,
     api_hash=config.API_HASH,
-    session_string=config.STRING_SESSION,
+    session_string=config.STRING_SESSION.strip(),
     in_memory=True,
 )
-
 call_py = PyTgCalls(assistant)
 
 mongo_client = AsyncIOMotorClient(config.MONGO_DB_URI)
