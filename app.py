@@ -136,9 +136,21 @@ async def main():
             await _run_once()
             break  # idle() sirf tabhi return karta hai jab process ko normally stop kiya jaaye
         except Exception as e:
-            LOGGER.error(f"Bot crash ho gaya, 10 second mein restart kar raha hoon: {e}")
-            await asyncio.sleep(10)
+    LOGGER.error(f"Bot crash ho gaya: {e}")
 
+    try:
+        if bot.is_connected:
+            await bot.stop()
+    except Exception:
+        pass
+
+    try:
+        if assistant.is_connected:
+            await assistant.stop()
+    except Exception:
+        pass
+
+    await asyncio.sleep(10)
 
 if __name__ == "__main__":
     threading.Thread(target=run_web, daemon=True).start()
